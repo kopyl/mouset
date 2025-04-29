@@ -2,7 +2,7 @@
 
 ### Motivation:
 I was not able to run [cliclick](https://github.com/BlueM/cliclick) on macOS 15.x (neither it was able to be installed via `brew`, nor the binary from Releases on GitHub worked – I've been geetting `Killed: 9` error right after running it, so decided to write my own tool.<br>
-I guess the `Killed: 9` error was appearing due to unsigned binary (developer account required). My binary is signed, so you will be easily able to run it.
+_I guess the `Killed: 9` error was appearing due to unsigned binary (developer account required). My binary is signed, so you will be easily able to run it._
 
 I needed some CLI tool for moving my mouse because i wanted to make a tool for automating the process of creating screenshots for my macOS application.
 I'm writing the screenshot making automation in AppleScript and it does not natively suppport the mouse movement.
