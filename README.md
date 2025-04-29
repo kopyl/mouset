@@ -46,7 +46,12 @@ xcrun notarytool store-credentials "codesign" \
   --team-id "XXXXXXX" \
   --password "russ-ians-shou-lddi"
 ```
+Of course don't forget to replace the "codesign" App-specific password name with yours you set in step 3, the Apple ID with yours, team ID with the one received in step 2.6 and the App-specific password you got from Apple in step 3.
 5. Sign the binary with the certificate you just downloaded from the Apple Developer website by this command `codesign --timestamp --options runtime --sign "XXXXXXX" mouset`. Don't forget to rerplace the "XXXXXXX" with the ID saved in step 2.6. I got no output from this command, so don't freak out if you don't get it as well<br>
 6. Create zip archive of the signed app like this: `zip -r mouset.zip mouset`
-7. Send the archive to Apple Notary Service:<br>
-   
+7. Send the archive to Apple Notary Service with this command:
+```
+xcrun notarytool submit mouset.zip --keychain-profile "codesign" --wait
+```
+replacing the keychain-profile name with yours (in case you have it different from mine).
+8. Now you should see something like "Accepted". If you did, congratulations, just send your archive to your friends.
