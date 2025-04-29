@@ -39,19 +39,23 @@ You need to ~~suffer~~ sign it first with a developer account (which costs $99 a
   2.5. Download the certificate, double click it and make sure it appears in the 'Keychain Access' app on the 'My certificates' tab.<br>
   2.6. Now in Keychain Access, under "My Certificates", you should see something like `Developer ID Application: Mike Tyson (XXXXXXX)`. You need to save that ID in parentheses (XXXXXXX) for later<br>
 3. Now create App-specific password on https://account.apple.com/account/manage , save the name you give (for example "codesign") and the password you get<br>
-4. Run this command to save the credentials for the Apple Notary Service:
+4. Run this command to save the credentials for the Apple Notary Service:<br>
 ```
 xcrun notarytool store-credentials "codesign" \
   --apple-id "miketyson@gmail.com" \
   --team-id "XXXXXXX" \
   --password "russ-ians-shou-lddi"
 ```
-Of course don't forget to replace the "codesign" App-specific password name with yours you set in step 3, the Apple ID with yours, team ID with the one received in step 2.6 and the App-specific password you got from Apple in step 3.
+Of course don't forget to replace the "codesign" App-specific password name with yours you set in step 3, the Apple ID with yours, team ID with the one received in step 2.6 and the App-specific password you got from Apple in step 3.<br>
 5. Sign the binary with the certificate you just downloaded from the Apple Developer website by this command `codesign --timestamp --options runtime --sign "XXXXXXX" mouset`. Don't forget to rerplace the "XXXXXXX" with the ID saved in step 2.6. I got no output from this command, so don't freak out if you don't get it as well<br>
-6. Create zip archive of the signed app like this: `zip -r mouset.zip mouset`
-7. Send the archive to Apple Notary Service with this command:
+6. Create zip archive of the signed app like this: `zip -r mouset.zip mouset`<br>
+7. Send the archive to Apple Notary Service with this command:<br>
 ```
 xcrun notarytool submit mouset.zip --keychain-profile "codesign" --wait
 ```
-replacing the keychain-profile name with yours (in case you have it different from mine).
-8. Now you should see something like "Accepted". If you did, congratulations, just send your archive to your friends.
+replacing the keychain-profile name with yours (in case you have it different from mine).<br>
+8. Now you should see something like "Accepted". If you did, congratulations, just send your archive to your friends.<br>
+
+If it's not signed, anyone who downloads it from the internet to their mac are going to see this bullshit:
+<img width="260" alt="image" src="https://github.com/user-attachments/assets/b059177f-61da-4525-af27-fae2508c65b8" />
+It [can be fixed without having to sign the binary](https://youtu.be/biIvAM94b98?si=C39_yPQ5SUgS-41B) on a recepient's macOS (whoever downloads it from the internet, but it's much better if it is.
