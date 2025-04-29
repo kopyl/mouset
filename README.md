@@ -33,4 +33,11 @@ You need to ~~suffer~~ sign it first with a developer account (which costs $99 a
 2. Then you must download another certificate:<br>
   2.1. First go to https://developer.apple.com/account<br>
   2.2. Navigate to: Certificates, Identifiers & Profiles → Certificates<br>
-  2.3. Click ➕ → Developer ID Application → Continue
+  2.3. Click ➕ → Developer ID Application → Continue<br>
+  2.4. Upload the certificate you got from the 'Certificate Assistant'<br>
+  2.5. Download the certificate, double click it and make sure it appears in the 'Keychain Access' app on the 'My certificates' tab.<br>
+  2.6. Now in Keychain Access, under "My Certificates", you should see something like `Developer ID Application: Your Name (TEAMID)`. You need to save that ID for later<br>
+3. Now create App-specific password on https://account.apple.com/account/manage , save the name you give (for example "codesign") and the password you get <br>
+4. Create zip archive of the app like this: `zip -r mouset.zip mouset`<br>
+5. Send the archive to Apple Notary Service:<br>
+   
