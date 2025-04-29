@@ -56,6 +56,6 @@ xcrun notarytool submit mouset.zip --keychain-profile "codesign" --wait
 replacing the keychain-profile name with yours (in case you have it different from mine).<br>
 8. Now you should see something like "Accepted". If you did, congratulations, just send your archive to your friends.<br>
 
-If it's not signed, anyone who downloads it from the internet to their mac are going to see this bullshit:
+If it's not signed, anyone who downloads it from the internet to their mac are going to see this bullshit:<br>
 <img width="260" alt="image" src="https://github.com/user-attachments/assets/b059177f-61da-4525-af27-fae2508c65b8" />
 It [can be fixed without having to sign the binary](https://youtu.be/biIvAM94b98?si=C39_yPQ5SUgS-41B) on a recepient's macOS (whoever downloads it from the internet, but it's much better if it is.
