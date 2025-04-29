@@ -20,9 +20,10 @@ To achieve the mouse movement with AppleScript you can run some external shell s
 3. `cd` into the downloaded repo like this: `cd /Users/kopyl/Downloads/mouset`
 4. Run `swift run mouset` to just run it
 5. Run `swift build` to just build it for debugging
-6. Run `swift build -c release --show-bin-path` to build it for release (like i did). It will show you the path to the binary
+6. Run `swift build -c release` to build it for release (like i did)
+7. Run `swift build -c release --show-bin-path` to show the binary path of the just-built binary
 
-### Want to share it to friends?
+### Want to share it with friends?
 You need to ~~suffer~~ sign it first with a developer account (which costs $99 a year 🤬). But in case you have it (like i do), here are the steps to do it:
 1. First you must generate a certificate. To do it:<br>
   1.1. Open 'Keychain Access.app'. To do it:<br>
@@ -36,8 +37,16 @@ You need to ~~suffer~~ sign it first with a developer account (which costs $99 a
   2.3. Click ➕ → Developer ID Application → Continue<br>
   2.4. Upload the certificate you got from the 'Certificate Assistant'<br>
   2.5. Download the certificate, double click it and make sure it appears in the 'Keychain Access' app on the 'My certificates' tab.<br>
-  2.6. Now in Keychain Access, under "My Certificates", you should see something like `Developer ID Application: Your Name (TEAMID)`. You need to save that ID for later<br>
-3. Now create App-specific password on https://account.apple.com/account/manage , save the name you give (for example "codesign") and the password you get <br>
-4. Create zip archive of the app like this: `zip -r mouset.zip mouset`<br>
-5. Send the archive to Apple Notary Service:<br>
+  2.6. Now in Keychain Access, under "My Certificates", you should see something like `Developer ID Application: Mike Tyson (XXXXXXX)`. You need to save that ID in parentheses (XXXXXXX) for later<br>
+3. Now create App-specific password on https://account.apple.com/account/manage , save the name you give (for example "codesign") and the password you get<br>
+4. Run this command to save the credentials for the Apple Notary Service:
+```
+xcrun notarytool store-credentials "codesign" \
+  --apple-id "miketyson@gmail.com" \
+  --team-id "XXXXXXX" \
+  --password "russ-ians-shou-lddi"
+```
+5. Sign the binary with the certificate you just downloaded from the Apple Developer website by this command `codesign --timestamp --options runtime --sign "XXXXXXX" mouset`. Don't forget to rerplace the "XXXXXXX" with the ID saved in step 2.6. I got no output from this command, so don't freak out if you don't get it as well<br>
+6. Create zip archive of the signed app like this: `zip -r mouset.zip mouset`
+7. Send the archive to Apple Notary Service:<br>
    
