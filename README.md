@@ -21,3 +21,16 @@ To achieve the mouse movement with AppleScript you can run some external shell s
 4. Run `swift run mouset` to just run it
 5. Run `swift build` to just build it for debugging
 6. Run `swift build -c release --show-bin-path` to build it for release (like i did). It will show you the path to the binary
+
+### Want to share it to friends?
+You need to ~~suffer~~ sign it first with a developer account (which costs $99 a year 🤬). But in case you have it (like i do), here are the steps to do it:
+1. First you must generate a certificate. To do it:
+  1.1. Open 'Keychain Access.app'. To do it:
+   1.1.1. You might open Spotlight, type 'Keychain' and select 'Keychain Access.app'. Or find it somewhere in `'/System/Library/CoreServices/Applications/Keychain Access.app'`
+ 1.2. In the top left corner of the screen press 'Keychain Access' -> 'Certificate Assistant' -> 'Request a Certificate From a Certificate Authority'
+ 1.3. Enter the email
+ 1.4. Save the certificate to disk
+2. Then you must download another certificate:
+  2.1. First go to https://developer.apple.com/account
+  2.2. Navigate to: Certificates, Identifiers & Profiles → Certificates
+  2.3. Click ➕ → Developer ID Application → Continue
