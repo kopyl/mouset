@@ -24,13 +24,13 @@ To achieve the mouse movement with AppleScript you can run some external shell s
 
 ### Want to share it to friends?
 You need to ~~suffer~~ sign it first with a developer account (which costs $99 a year 🤬). But in case you have it (like i do), here are the steps to do it:
-1. First you must generate a certificate. To do it:
-  1.1. Open 'Keychain Access.app'. To do it:
-   1.1.1. You might open Spotlight, type 'Keychain' and select 'Keychain Access.app'. Or find it somewhere in `'/System/Library/CoreServices/Applications/Keychain Access.app'`
- 1.2. In the top left corner of the screen press 'Keychain Access' -> 'Certificate Assistant' -> 'Request a Certificate From a Certificate Authority'
- 1.3. Enter the email
- 1.4. Save the certificate to disk
-2. Then you must download another certificate:
-  2.1. First go to https://developer.apple.com/account
-  2.2. Navigate to: Certificates, Identifiers & Profiles → Certificates
+1. First you must generate a certificate. To do it:<br>
+  1.1. Open 'Keychain Access.app'. To do it:<br>
+   1.1.1. You might open Spotlight, type 'Keychain' and select 'Keychain Access.app'. Or find it somewhere in `'/System/Library/CoreServices/Applications/Keychain Access.app'`<br>
+ 1.2. In the top left corner of the screen press 'Keychain Access' -> 'Certificate Assistant' -> 'Request a Certificate From a Certificate Authority'<br>
+ 1.3. Enter the email<br>
+ 1.4. Save the certificate to disk<br>
+2. Then you must download another certificate:<br>
+  2.1. First go to https://developer.apple.com/account<br>
+  2.2. Navigate to: Certificates, Identifiers & Profiles → Certificates<br>
   2.3. Click ➕ → Developer ID Application → Continue
