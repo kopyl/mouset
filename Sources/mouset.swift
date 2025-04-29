@@ -3,7 +3,16 @@ import Foundation
 import ArgumentParser
 
 func moveMouseTo(point: CGPoint) {
-    CGEvent(mouseEventSource: nil, mouseType: CGEventType.mouseMoved, mouseCursorPosition: point, mouseButton: CGMouseButton.left)?.post(tap: CGEventTapLocation.cghidEventTap)
+    guard let event =
+    CGEvent(
+        mouseEventSource: nil,
+        mouseType: .mouseMoved,
+        mouseCursorPosition: point,
+        mouseButton: .left
+    )
+    else { return }
+    
+    event.post(tap: .cghidEventTap)
 }
 
 @main
@@ -16,13 +25,20 @@ struct Mouset: ParsableCommand {
 
     public func run() throws {
       if let x = x, let y = y {
-          moveMouseTo(point: CGPoint(x: x, y: y))
+          let moveToPoint = CGPoint(x: x, y: y)
+          moveMouseTo(point: moveToPoint)
       }
       else {
-          let locaction = "x: \(Int(NSEvent.mouseLocation.x)), y: \(Int(NSEvent.mouseLocation.y))"
+          guard let screen = NSScreen.main else { return }
+          
+          let currentX = Int(NSEvent.mouseLocation.x)
+          let currentY = Int(screen.frame.size.height - NSEvent.mouseLocation.y)
+          
+          let locaction = "x: \(currentX), y: \(currentY)"
+          
           print("Current mouse location: \(locaction)")
           print("To move mouse to this location, run:")
-          print("mouset \(Int(NSEvent.mouseLocation.x)) \(Int(NSEvent.mouseLocation.y))")
+          print("mouset \(currentX) \(currentY)")
       }
     }
 }
