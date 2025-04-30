@@ -13,7 +13,7 @@ I'm writing the screenshot making automation in AppleScript and it does not nati
 To achieve the mouse movement with AppleScript you can run some external shell script (which is why I made this binary).
 
 ### How to run it:
-1. Download the binary from the latest release
+1. [Download the binary from the latest release](https://github.com/kopyl/mouset/releases/download/0.1/mouset.zip).
 2. Convenience-wise i recommend you to put the binary to `/usr/local/bin/` on your macOS, so you don't need to write the full path to this tool each time you run it. You can do it like this: `sudo cp /path/to/downloaded/mouset /usr/local/bin/`
 3. To get current coordinates run `mouset` (or full path to the binary. You will likely need the binary to Accessibility in System Settings.
 4. To put your mouse to some position, just run `mouset {x} {y}`. Fox example: `mouset 100 400`, which will move your mouse to x: 100 and y: 100 position.
